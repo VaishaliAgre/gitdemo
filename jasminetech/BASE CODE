@@ -1,0 +1,67 @@
+var webdriver = require('selenium-webdriver'),
+    By = webdriver.By,
+    until = webdriver.until;
+
+var driver = new webdriver.Builder()
+    .forBrowser('chrome')
+    .build();
+    //calling location function
+    openlistarea();
+
+driver.get('https://fsp-dev.jupiterintel.com/');
+
+driver.sleep(1000).then(function() {
+driver.manage().window().maximize();    
+driver.findElement(By.name('email')).sendKeys('ramana@jupiterintel.com');
+driver.findElement(By.name('password')).sendKeys('(Jupiter123)');
+driver.findElement(By.className('login-button')).click();
+
+});
+function openlistarea() {
+    console.log("open area list"); 
+     driver.wait(until.elementLocated({ className: 'css-1hwfws3' }), 3 * 1000).then(function () {
+      driver.findElement(By.className('css-1hwfws3')).click().then(function(){ 
+        driver.wait(until.elementLocated({ className: 'css-1u7kv8s-menu' }), 5 * 1000).then(function () {
+           driver.findElements(By.className("css-1u7kv8s-menu")).then(function(elements){
+             elements.forEach(function (element) {
+               element.getText().then(function(text){
+                console.log(text);
+                });
+         });
+    }); 
+    
+}); 
+    
+    driver.wait(until.elementLocated({ id: 'react-select-2-option-0' }), 5 * 1000).then(function (){
+    driver.findElement(By.id('react-select-2-option-0')).click(); 
+    console.log("id is found");
+    }); 
+    
+    });
+    });
+    }
+
+
+// function location(){
+// var srch = driver.findElement(By.className('css-1hwfws3')).getText();
+//     console.log('dropdown length is' + srch);
+// // for (var i = 0; i < srch.length; i++) {
+    
+// //    console.log('i is'+ i);
+// //   };
+// //  }
+
+
+
+ 
+
+// // driver.sleep(2000).then(function() {
+// //   driver.getTitle().then(function(title) {
+// //     if(title === 'Jupiter Intelligence') {
+// //       console.log('Test passed title matched');
+// //     } else {
+// //       console.log('Test failed');
+// //     }
+// //     driver.quit();
+// //   });
+// };

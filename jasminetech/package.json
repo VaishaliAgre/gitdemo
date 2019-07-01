@@ -1,0 +1,18 @@
+{
+  "name": "seleniumtest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test1.js",
+  "dependencies": {
+    "chromedriver": "^74.0.0",
+    "jasmine": "^3.4.0",
+    "selenium-webdriver": "^4.0.0-alpha.1",
+    "webshot": "^0.18.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "VAishali <vaishali@vrtchnologies.info> (www.google.com)",
+  "license": "ISC"
+}
